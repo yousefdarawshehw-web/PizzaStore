@@ -23,7 +23,6 @@ namespace TryStoreAgainPizza
             InitializeComponent();
         }
 
-        // ✅ تحسب السعر الكلي (الحجم + الكرست + الإضافات)
         int totalPrice()
         {
             int pricePizza = 0;
@@ -38,7 +37,7 @@ namespace TryStoreAgainPizza
             return pricePizza + CrustPrice + ToppingsPrice;
         }
 
-        // ✅ يرجّع Tuple لنوع الكرست وسعره
+      
         (string Type, int Price) GET_Type_Price()
         {
             if (BtnRadThin.Checked)
@@ -49,7 +48,7 @@ namespace TryStoreAgainPizza
             return ("", 0);
         }
 
-        // ✅ يحسب كل الإضافات المختارة
+     
         (string Type, int Price) AddToppings()
         {
             List<string> toppingNames = new List<string>();
@@ -65,13 +64,13 @@ namespace TryStoreAgainPizza
             return (string.Join(", ", toppingNames), totalToppingPrice);
         }
 
-        // ✅ تُستخدم لتحديث شاشة السعر
+
         void UpdateTotal()
         {
             labTotalPrice.Text = "Total Price: " + totalPrice();
         }
 
-        // ✅ أحداث تغيير الحجم
+ 
         private void BtnRadSmall_CheckedChanged(object sender, EventArgs e)
         {
             if (BtnRadSmall.Checked)
@@ -99,7 +98,7 @@ namespace TryStoreAgainPizza
             }
         }
 
-        // ✅ أحداث الكرست
+  
         private void BtnRadThin_CheckedChanged(object sender, EventArgs e)
         {
             if (BtnRadThin.Checked)
@@ -122,7 +121,6 @@ namespace TryStoreAgainPizza
             }
         }
 
-        // ✅ دالة مشتركة لتحديث الإضافات (يُستدعى من كل CheckBox)
         void UpdateToppings()
         {
             var Result = AddToppings();
@@ -131,7 +129,7 @@ namespace TryStoreAgainPizza
             UpdateTotal();
         }
 
-        // ✅ أحداث كل الإضافات
+ 
         private void btnChExtraChees_CheckedChanged(object sender, EventArgs e) => UpdateToppings();
         private void BtnChOnion_CheckedChanged(object sender, EventArgs e) => UpdateToppings();
         private void BtnChMushrooms_CheckedChanged(object sender, EventArgs e) => UpdateToppings();
